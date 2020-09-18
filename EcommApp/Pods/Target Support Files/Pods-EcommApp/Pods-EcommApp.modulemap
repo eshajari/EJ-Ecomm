@@ -1,0 +1,6 @@
+framework module Pods_EcommApp {
+  umbrella header "Pods-EcommApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
