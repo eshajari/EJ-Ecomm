@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RealmSwift
+import Realm
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        //TEST Changes commit check
+        let realm = try! Realm()
+        let folderPath = realm.configuration.fileURL!.deletingLastPathComponent().path
+        print("Realm DB path:\n\(folderPath)")
+        // Disable file protection for this directory
+        try! FileManager.default.setAttributes([FileAttributeKey(rawValue: FileAttributeKey.protectionKey.rawValue): FileProtectionType.none], ofItemAtPath: folderPath)
+        
+        
         return true
     }
 
