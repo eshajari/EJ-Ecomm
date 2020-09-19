@@ -12,8 +12,13 @@
 		18D870D22514BA8F00996AB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D870C82514BA8F00996AB6 /* LaunchScreen.storyboard */; };
 		18D870D32514BA8F00996AB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D870CA2514BA8F00996AB6 /* Main.storyboard */; };
 		18D870D42514BA8F00996AB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D870CC2514BA8F00996AB6 /* SceneDelegate.swift */; };
-		18D870D52514BA8F00996AB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D870CE2514BA8F00996AB6 /* ViewController.swift */; };
+		18D870D52514BA8F00996AB6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D870CE2514BA8F00996AB6 /* HomeViewController.swift */; };
 		18D870D62514BA8F00996AB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D870CF2514BA8F00996AB6 /* AppDelegate.swift */; };
+		18D870D92514BE3E00996AB6 /* EJUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D870D82514BE3E00996AB6 /* EJUtility.swift */; };
+		18D870DB2514BEC200996AB6 /* EJTextConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D870DA2514BEC200996AB6 /* EJTextConst.swift */; };
+		18D870DD2514C70F00996AB6 /* RLMBaseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D870DC2514C70F00996AB6 /* RLMBaseCategory.swift */; };
+		18D870DF2514C76800996AB6 /* BaseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D870DE2514C76800996AB6 /* BaseCategory.swift */; };
+		18D870E12514CD7500996AB6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D870E02514CD7500996AB6 /* DetailViewController.swift */; };
 		54A1043F538E0EC1E7DDD1CE /* Pods_EcommApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0237C1CFD0C42F89C589B966 /* Pods_EcommApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,8 +43,13 @@
 		18D870C92514BA8F00996AB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18D870CB2514BA8F00996AB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18D870CC2514BA8F00996AB6 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		18D870CE2514BA8F00996AB6 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		18D870CE2514BA8F00996AB6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		18D870CF2514BA8F00996AB6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		18D870D82514BE3E00996AB6 /* EJUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJUtility.swift; sourceTree = "<group>"; };
+		18D870DA2514BEC200996AB6 /* EJTextConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EJTextConst.swift; sourceTree = "<group>"; };
+		18D870DC2514C70F00996AB6 /* RLMBaseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMBaseCategory.swift; sourceTree = "<group>"; };
+		18D870DE2514C76800996AB6 /* BaseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCategory.swift; sourceTree = "<group>"; };
+		18D870E02514CD7500996AB6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		1FD38BD6915CF701D239E0D8 /* Pods-EcommApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcommApp.release.xcconfig"; path = "Target Support Files/Pods-EcommApp/Pods-EcommApp.release.xcconfig"; sourceTree = "<group>"; };
 		6FE5E7B664B0CEAA1B2B4D27 /* Pods-EcommApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcommApp.debug.xcconfig"; path = "Target Support Files/Pods-EcommApp/Pods-EcommApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,8 +127,9 @@
 		18D870CD2514BA8F00996AB6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				18D870CE2514BA8F00996AB6 /* ViewController.swift */,
 				18D870CF2514BA8F00996AB6 /* AppDelegate.swift */,
+				18D870CE2514BA8F00996AB6 /* HomeViewController.swift */,
+				18D870E02514CD7500996AB6 /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -126,6 +137,7 @@
 		18D870D02514BA8F00996AB6 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				18D870D72514BD9200996AB6 /* Extensions */,
 				18D870D12514BA8F00996AB6 /* ModalClasses */,
 			);
 			path = Modal;
@@ -134,8 +146,19 @@
 		18D870D12514BA8F00996AB6 /* ModalClasses */ = {
 			isa = PBXGroup;
 			children = (
+				18D870DC2514C70F00996AB6 /* RLMBaseCategory.swift */,
+				18D870DE2514C76800996AB6 /* BaseCategory.swift */,
 			);
 			path = ModalClasses;
+			sourceTree = "<group>";
+		};
+		18D870D72514BD9200996AB6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				18D870D82514BE3E00996AB6 /* EJUtility.swift */,
+				18D870DA2514BEC200996AB6 /* EJTextConst.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		582127394CC3BECCE7A1C61B /* Frameworks */ = {
@@ -203,7 +226,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1170;
 				LastUpgradeCheck = 1170;
-				ORGANIZATIONNAME = apple;
+				ORGANIZATIONNAME = "Esha Pancholi";
 				TargetAttributes = {
 					18D870932514B39C00996AB6 = {
 						CreatedOnToolsVersion = 11.7;
@@ -301,8 +324,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				18D870D62514BA8F00996AB6 /* AppDelegate.swift in Sources */,
-				18D870D52514BA8F00996AB6 /* ViewController.swift in Sources */,
+				18D870D92514BE3E00996AB6 /* EJUtility.swift in Sources */,
+				18D870DF2514C76800996AB6 /* BaseCategory.swift in Sources */,
+				18D870D52514BA8F00996AB6 /* HomeViewController.swift in Sources */,
 				18D870D42514BA8F00996AB6 /* SceneDelegate.swift in Sources */,
+				18D870DD2514C70F00996AB6 /* RLMBaseCategory.swift in Sources */,
+				18D870DB2514BEC200996AB6 /* EJTextConst.swift in Sources */,
+				18D870E12514CD7500996AB6 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
