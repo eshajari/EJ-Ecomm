@@ -142,15 +142,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hie-j9-GgQ">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hie-j9-GgQ">
                             <size key="itemSize" width="183" height="184"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="15" minY="10" maxX="15" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productcell" id="esy-UL-Q7a" customClass="productcell" customModule="EcommApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="183" height="184"/>
+                                <rect key="frame" x="15" y="10" width="183" height="184"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="PHN-li-mkX">
                                     <rect key="frame" x="0.0" y="0.0" width="183" height="184"/>
@@ -183,9 +183,6 @@
                                             <state key="normal" title="view all">
                                                 <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
-                                            <connections>
-                                                <action selector="viewmoreclicked:" destination="esy-UL-Q7a" eventType="touchUpInside" id="Pml-Pb-1js"/>
-                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -251,7 +248,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="C1w-tR-pW0"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Y5u-oz-HT1">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Y5u-oz-HT1">
                                     <size key="itemSize" width="87" height="69"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -259,18 +256,18 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellsize" id="ip0-CW-r9r">
-                                        <rect key="frame" x="0.0" y="0.0" width="87" height="69"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="85" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="kWz-9W-3Ml">
-                                            <rect key="frame" x="0.0" y="0.0" width="87" height="69"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="85" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zbg-LW-KOb">
-                                                    <rect key="frame" x="7" y="7" width="73" height="55"/>
+                                                <view tag="12" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zbg-LW-KOb">
+                                                    <rect key="frame" x="7" y="7" width="71" height="56"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GP1-60-TWX">
-                                                    <rect key="frame" x="5" y="10" width="77" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GP1-60-TWX">
+                                                    <rect key="frame" x="5" y="10" width="75" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="HdD-l1-DP3"/>
                                                     </constraints>
@@ -278,8 +275,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="35" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQp-K7-z8V">
-                                                    <rect key="frame" x="5" y="35" width="77" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="11" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="35" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQp-K7-z8V">
+                                                    <rect key="frame" x="5" y="35" width="75" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="kat-8R-hsk"/>
                                                     </constraints>
@@ -302,7 +299,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="zbg-LW-KOb" secondAttribute="bottom" constant="7" id="yZg-dz-SL2"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="87" height="69"/>
+                                        <size key="customSize" width="85" height="70"/>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

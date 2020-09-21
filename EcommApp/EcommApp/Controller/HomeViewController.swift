@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import Realm
 import RealmSwift
+import ProgressHUD
 
 class HomeViewController: UIViewController {
     
@@ -23,7 +24,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.showProgressHUD()
         self.CallAPIData()
+        
     }
     
     
@@ -60,6 +63,7 @@ extension HomeViewController {
         }
         else
         {
+            self.hideProgressHUD()
             self.showAlertonly(controller: self, withMessage: EJTextConst.Messages.connectionError)
         }
         
@@ -68,6 +72,7 @@ extension HomeViewController {
     
     func StoreDatatoLocal(baseObj:BaseCategory){
         
+        ProgressHUD.show("Saving to local")
         let realm = try! Realm()
         
         //Store by Catrgory
@@ -86,6 +91,7 @@ extension HomeViewController {
                     objprod.date_added = prod.dateAdded
                     
                     let objtax = rlmTax.init()
+                    objtax.id = String(prod.id)
                     objtax.value = prod.tax.value
                     objtax.name = prod.tax.name.rawValue
                     
@@ -95,7 +101,7 @@ extension HomeViewController {
                         let objvari = rlmVariant.init()
                         objvari.id = vari.id
                         objvari.color = vari.color
-                        objvari.size = vari.size
+                        objvari.size = vari.size ?? 0
                         objvari.price = vari.price
                         
                         objprod.variant.append(objvari)
@@ -125,9 +131,9 @@ extension HomeViewController {
                     
                     let objrankprodR = rlmRankProduct.init()
                     objrankprodR.id = rankprodC.id
-                    objrankprodR.view_count = rankprodC.viewCount
-                    objrankprodR.shares = rankprodC.shares
-                    objrankprodR.order_count = rankprodC.orderCount
+                    objrankprodR.view_count = rankprodC.viewCount ?? 0
+                    objrankprodR.shares = rankprodC.shares ?? 0
+                    objrankprodR.order_count = rankprodC.orderCount ?? 0
                     
                     objrankR.products.append(objrankprodR)
                     
@@ -188,6 +194,9 @@ extension HomeViewController {
         
         
         self.tblview.reloadData()
+        
+        self.hideProgressHUD()
+        ProgressHUD.showSucceed()
         
     }
     
@@ -251,7 +260,12 @@ extension HomeViewController :  UITableViewDataSource, UITableViewDelegate{
             
         }
         else{
-            // self.arrRankingTypes.count
+            
+            let vc = self.initateVC(forSB: EJTextConst.ViewCnt.SIDMain, Vid: EJTextConst.ViewCnt.VidProductList) as! ProductListController
+            vc.iscountobj = true
+            vc.prodlistType = typefromname(name: arrRankingTypes[indexPath.row].ranking!)
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         }
         
     }
@@ -271,5 +285,19 @@ extension HomeViewController :  UITableViewDataSource, UITableViewDelegate{
         }
         return ""
     }
+ 
+    func typefromname(name: String) -> countType {
+        
+        if (name == "Most Viewed Products"){
+            return countType.views
+        }
+        else if (name == "Most OrdeRed Products"){
+            return countType.ordered
+        }
+        else {
+            return countType.share
+        }
+    }
+    
     
 }

@@ -64,7 +64,7 @@ class rlmProduct: Object, Decodable {
     @objc dynamic var name: String?
     @objc dynamic var date_added: String?
     let variant = List<rlmVariant>()
-    dynamic var tax: rlmTax?
+    @objc dynamic var tax: rlmTax?
     
     
     override static func primaryKey() -> String? {
@@ -86,8 +86,11 @@ class rlmVariant: Object, Decodable {
    
     @objc dynamic var id = 0
     @objc dynamic var color: String?
-    dynamic var size: Int!
-    dynamic var price : Int!
+//    dynamic var size: Int!
+//    dynamic var price : Int!
+//
+    @objc dynamic var size = 0
+    @objc dynamic var price = 0
     
     override static func primaryKey() -> String? {
         return "id"
@@ -104,12 +107,14 @@ class rlmVariant: Object, Decodable {
 //4 Tax
 class rlmTax: Object, Decodable {
    
+    @objc dynamic var id: String?
+
     @objc dynamic var value = 0.0
     @objc dynamic var name: String?
     
     
     override static func primaryKey() -> String? {
-        return "name"
+        return "id"
     }
     
     private enum CodingKeys: String, CodingKey {
@@ -124,9 +129,9 @@ class rlmTax: Object, Decodable {
 class rlmRankProduct: Object, Decodable {
    
     @objc dynamic var id = 0
-    dynamic var view_count: Int!
-    dynamic var order_count: Int!
-    dynamic var shares: Int!
+    @objc dynamic var view_count = 0
+    @objc dynamic var order_count = 0
+    @objc dynamic var shares = 0
     
     
     override static func primaryKey() -> String? {

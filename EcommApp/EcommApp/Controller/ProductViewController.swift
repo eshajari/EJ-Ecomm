@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Realm
+import RealmSwift
 
 class ProductViewController: UIViewController {
 
@@ -23,14 +25,24 @@ class ProductViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        self.setdatatoDisplay()
     }
     
     func setdatatoDisplay(){
         
+        let rlm = try! Realm()
+        let predict = NSPredicate(format: "id == %@","\(objProduct.id ?? "-")")
+        let resultobj = rlm.objects(rlmProduct.self).filter(predict)
+        
+        print(resultobj.first as Any)
+        let resultobjTax = rlm.objects(rlmTax.self).filter(predict)
+        print(resultobjTax.first as Any)
+        
         lblprodName.text = objProduct.name
-        lbltaxvalue.text = "\(objProduct.tax?.name): \(objProduct.tax?.value ?? 0.0)"
-        lbltotalprice.text = "\(objProduct.variant[0].price ?? 0)"
+        lbltaxvalue.text = "\(objProduct.tax?.name ?? "VAT"): \(objProduct.tax?.value ?? 0.0)"
+        //lbltotalprice.text = "\(objProduct.variant[0].price ?? 0)"
+        lbltotalprice.text = "Price: ₹\(objProduct.variant[0].price )"
+        collsize.reloadData()
     }
     
 
@@ -46,7 +58,7 @@ class ProductViewController: UIViewController {
 
 }
 
-extension ProductViewController : UICollectionViewDelegate, UICollectionViewDataSource {
+extension ProductViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -68,7 +80,7 @@ extension ProductViewController : UICollectionViewDelegate, UICollectionViewData
         let lblcolor = cell.viewWithTag(10) as? UILabel
         lblcolor?.text = objVar.color
         let lblsize = cell.viewWithTag(11) as? UILabel
-        lblsize?.text = "\(objVar.size ?? 0)"
+        lblsize?.text = "\(objVar.size )"
         
         let vwBg = cell.viewWithTag(12)
         
@@ -94,7 +106,12 @@ extension ProductViewController : UICollectionViewDelegate, UICollectionViewData
         selectedIndex = indexPath.item
         collectionView.reloadData()
         let objVar = objProduct.variant[indexPath.item]
-        lbltotalprice.text = "Price: ₹\(objVar.price ?? 0)"
+        lbltotalprice.text = "Price: ₹\(objVar.price )"
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        return CGSize(width: 85,height: 70)
     }
 
 }

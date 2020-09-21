@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SVProgressHUD
+import ProgressHUD
 import Reachability
 
 
@@ -39,14 +39,15 @@ extension UIViewController {
     
     func showProgressHUD()
     {
-        SVProgressHUD.show(withStatus: "Loading...")
+        
+        ProgressHUD.show("Loading..")
         //UIApplication.shared.beginIgnoringInteractionEvents()
     }
     
     func hideProgressHUD()
     {
         //UIApplication.shared.endIgnoringInteractionEvents()
-        SVProgressHUD.dismiss()
+        ProgressHUD.dismiss()
     }
     
     //Check Network

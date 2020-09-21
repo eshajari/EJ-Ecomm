@@ -14,7 +14,14 @@ class productcell: UICollectionViewCell {
     @IBOutlet weak var lblvariant: UILabel!
     @IBOutlet weak var btnviewmore: UIButton!
     
-    @IBAction func viewmoreclicked(_ sender: Any) {
-        
+    @IBOutlet weak var imgtype: UIImageView!
+    
+    @IBOutlet weak var lblcount: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
     }
+    
+    
 }

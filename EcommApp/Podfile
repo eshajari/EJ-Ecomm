@@ -9,9 +9,9 @@ target 'EcommApp' do
   pod 'ReachabilitySwift'
   pod 'IQKeyboardManagerSwift'
   pod 'Alamofire'
-  pod 'SVProgressHUD'
   pod 'SwiftyJSON'
   pod 'RealmSwift'
-  
+  pod 'ProgressHUD'
+
 
 end

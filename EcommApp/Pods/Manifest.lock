@@ -1,42 +1,42 @@
 PODS:
   - Alamofire (5.2.2)
   - IQKeyboardManagerSwift (6.5.6)
+  - ProgressHUD (13.4)
   - ReachabilitySwift (5.0.0)
   - Realm (5.4.2):
     - Realm/Headers (= 5.4.2)
   - Realm/Headers (5.4.2)
   - RealmSwift (5.4.2):
     - Realm (= 5.4.2)
-  - SVProgressHUD (2.2.5)
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - IQKeyboardManagerSwift
+  - ProgressHUD
   - ReachabilitySwift
   - RealmSwift
-  - SVProgressHUD
   - SwiftyJSON
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - IQKeyboardManagerSwift
+    - ProgressHUD
     - ReachabilitySwift
     - Realm
     - RealmSwift
-    - SVProgressHUD
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  ProgressHUD: 137a7fc677487c5581668f4490563124fb35c232
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   Realm: ced868eb0254f8d33a21c06981355e5aa33bc005
   RealmSwift: aedc4363150f3c61f91ae0537ed116d2d080a4dd
-  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 34463c0a2b7af3ae12de2b2f589587f71933e804
+PODFILE CHECKSUM: dc28fcd02c66ec2413886fc2f769521a884817d8
 
 COCOAPODS: 1.9.3
