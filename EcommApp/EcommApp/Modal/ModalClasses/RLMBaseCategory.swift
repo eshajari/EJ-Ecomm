@@ -42,7 +42,7 @@ class rlmCategory: Object, Decodable {
     @objc dynamic var id: String?
     @objc dynamic var name: String?
     let products = List<rlmProduct>()
-    var child_categories = List<Int>()
+    var child_categories = List<String>()
     
     
     override static func primaryKey() -> String? {

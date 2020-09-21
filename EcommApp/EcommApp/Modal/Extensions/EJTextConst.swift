@@ -47,6 +47,7 @@ struct EJTextConst
         
         static let VidHome = "IDHomeViewController"
         static let VidDetail = "IDDetailViewController"
+        static let VidProductList = "IDProductListController"
         static let VidProduct = "IDProductViewController"
     }
 }

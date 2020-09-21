@@ -105,7 +105,7 @@ extension HomeViewController {
                 }
                 
                 for numbs in catobj.childCategories {
-                    objcat.child_categories.append(numbs)
+                    objcat.child_categories.append(String(numbs))
                 }
                 
                 //Final Obj add
@@ -156,11 +156,12 @@ extension HomeViewController {
         print("Now Actual:\n\\n")
         
         //let rootCat2 = rlm.objects(rlmCategory.self).filter("child_categories.@count > 0")
+        
         let resultPredicate = NSPredicate(format: "products.@count == 0")
         let rootCat3 = rlm.objects(rlmCategory.self).filter(resultPredicate)
         
         
-        var arrids = [Int]()
+        var arrids = [String]()
         for obj2 in rootCat3 {
             arrids.append(contentsOf:(obj2.child_categories))
         }
@@ -171,7 +172,7 @@ extension HomeViewController {
         self.arrMainCat = [rlmCategory]()
         //Check for root category
         for obj2 in rootCat3 {
-            let val = Int(obj2.id!) ?? 0
+            let val = obj2.id!
             if !(arrids.contains(val)) {
                 self.arrMainCat.append(obj2)
             }
@@ -238,7 +239,14 @@ extension HomeViewController :  UITableViewDataSource, UITableViewDelegate{
             
             let objcategory = arrMainCat[indexPath.row]
             print("child cate: \(objcategory.child_categories)")
+            let list2 = objcategory.child_categories.map { String($0) }
+            
+            let rlm = try! Realm()
+            let arrnew = rlm.objects(rlmCategory.self).filter("id IN %@",objcategory.child_categories)
+            
+            print("child items are\(arrnew)")
             let vc = self.initateVC(forSB: EJTextConst.ViewCnt.SIDMain, Vid: EJTextConst.ViewCnt.VidDetail) as! DetailViewController
+            vc.categoriesObj = objcategory
             self.navigationController?.pushViewController(vc, animated: true)
             
         }
