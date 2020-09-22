@@ -25,6 +25,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         self.showProgressHUD()
+        //call api for network data
         self.CallAPIData()
         
     }
@@ -129,13 +130,33 @@ extension HomeViewController {
                 
                 for rankprodC in rankingC.products {
                     
-                    let objrankprodR = rlmRankProduct.init()
-                    objrankprodR.id = rankprodC.id
-                    objrankprodR.view_count = rankprodC.viewCount ?? 0
-                    objrankprodR.shares = rankprodC.shares ?? 0
-                    objrankprodR.order_count = rankprodC.orderCount ?? 0
+                    let existingObj = try! Realm().object(ofType: rlmRankProduct.self, forPrimaryKey: rankprodC.id)
                     
-                    objrankR.products.append(objrankprodR)
+                    if (existingObj != nil)
+                    {
+                        if rankprodC.viewCount != nil && rankprodC.viewCount != 0 {
+                            existingObj?.view_count = rankprodC.viewCount!
+                        }
+                        if rankprodC.shares != nil && rankprodC.shares != 0 {
+                            existingObj?.shares = rankprodC.shares!
+                        }
+                        if rankprodC.orderCount != nil && rankprodC.orderCount != 0{
+                            existingObj?.order_count = rankprodC.orderCount!
+                        }
+                        
+                        objrankR.products.append(existingObj!)
+                    }
+                    else
+                    {
+                        let objrankprodR = rlmRankProduct.init()
+                        objrankprodR.id = rankprodC.id
+                        objrankprodR.view_count = rankprodC.viewCount ?? 0
+                        objrankprodR.shares = rankprodC.shares ?? 0
+                        objrankprodR.order_count = rankprodC.orderCount ?? 0
+                        
+                        objrankR.products.append(objrankprodR)
+                    }
+ 
                     
                 }
                 

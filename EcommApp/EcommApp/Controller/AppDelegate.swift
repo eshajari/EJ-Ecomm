@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        //setup realm and fetch path for location display
         let realm = try! Realm()
         let folderPath = realm.configuration.fileURL!.deletingLastPathComponent().path
         print("Realm DB path:\n\(folderPath)")
